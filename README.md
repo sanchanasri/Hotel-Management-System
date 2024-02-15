@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+this is just a simple hotel management system with basic ruby code and absolutely no styling
+
