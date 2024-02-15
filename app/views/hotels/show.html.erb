@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+
+  <p>
+    <strong>Name:</strong>
+    <%= @hotel.name %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= @hotel.location %>
+  </p>
+
+  <p>
+    <strong>Contact no:</strong>
+    <%= @hotel.contact_no %>
+  </p>
+
+  <p>
+    <strong>Days:</strong>
+    <% @hotel.days.each do |day| %><br>
+    <%= day%>
+    <%end%>
+  </p>
+
+  <p>
+    <strong>Times:</strong>
+    <% @hotel.times.each do |time| %><br>
+    <%= time%>
+    <%end%>
+  </p>
+
+</div>
+
+
+<div>
+  <%= link_to "Edit this hotel", edit_hotel_path(@hotel) %> |
+  <%= link_to "Back to hotels", hotels_path %> | 
+  <%= link_to "Items" , hotel_items_path(@hotel)%>
+
+  <%= button_to "Destroy this hotel", @hotel, method: :delete %>
+</div>

@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Hotels</h1>
+
+<div id="hotels">
+  <% @hotels.each do |hotel| %>
+    <%= render hotel %>
+    
+  <% end %>
+</div>
+
+<%= link_to "New hotel", new_hotel_path %>
+<%= link_to "Search" , search_path%>

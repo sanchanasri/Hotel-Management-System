@@ -1,0 +1,56 @@
+<p style="color: green"><%= notice %></p>
+
+
+  <p>
+    <strong>Hotel:</strong>
+    <%=  @hotel.name %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @item.name %>
+  </p>
+
+  <p>
+    
+  <strong>Days:</strong>
+  <% if @item.days.present? %>
+    <% @item.days.each do |day| %>
+      <%= day %>
+    <% end %>
+  <% else %>
+    No days available
+  <% end %>
+
+  </p>
+
+ <p>
+    <strong>Times:</strong>
+    <% if @item.times.present? %>
+   <% @item.times.each do |time| %>
+    <%=time%>
+    <%end%>
+  <% else %>
+    Not available
+  <% end %>
+    
+  </p>
+</div>
+
+Average rating : <%= @item.average_rating.present? ? number_with_precision(@item.average_rating, precision:2): "0.00" %>
+<br>
+Rate this item
+<%= render 'ratings/new'%>
+<br>
+Ratings<br>
+<% @item.ratings_count.each do |value, count|%>
+<%= value%> stars - <%= count%>
+<%end%>
+<br>
+
+<div>
+  <%= link_to "Edit this item", edit_hotel_item_path(@hotel, @item) %> |
+  <%= link_to "Back to items", hotel_items_path(@hotel) %>
+
+  <%# <%= button_to "Destroy this item", @item, method: :delete %>
+</div>

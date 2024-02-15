@@ -1,0 +1,6 @@
+<%= form_with(model: [@hotel, @item, Rating.new] , data: {turbo: false}) do |f| %>
+  <% (1..5).each do |rate| %>
+    <%= f.radio_button :value, rate %><%= rate %> stars<br>
+  <% end %>
+  <%= f.submit %>
+<% end %>

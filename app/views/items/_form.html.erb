@@ -1,0 +1,47 @@
+<%= form_with(model: [@hotel ,item]) do |form| %>
+  <% if item.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    Hotel : <%= @hotel.name%><br>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+ <div>
+    Select days:<br>
+    <label><input type="checkbox" name="days[]" value="Monday" <%= 'checked' if @item.days.include?("Monday") %>> Monday</label><br>
+    <label><input type="checkbox" name="days[]" value="Tuesday" <%= 'checked' if @item.days.include?("Tuesday") %>> Tuesday</label><br>
+    <label><input type="checkbox" name="days[]" value="Wednesday" <%= 'checked' if @item.days.include?("Wednesday") %>> Wednesday</label><br>
+    <label><input type="checkbox" name="days[]" value="Thursday" <%= 'checked' if @item.days.include?("Thursday") %>> Thursday</label><br>
+    <label><input type="checkbox" name="days[]" value="Friday" <%= 'checked' if @item.days.include?("Friday") %>> Friday</label><br>
+    <label><input type="checkbox" name="days[]" value="Saturday" <%= 'checked' if @item.days.include?("Saturday") %>> Saturday</label><br>
+    <label><input type="checkbox" name="days[]" value="Sunday" <%= 'checked' if @item.days.include?("Sunday") %>> Sunday</label><br>
+</div>
+
+        
+  <div>
+    <br>Select times:<br>
+      <label><input type="checkbox" name="times[]" value="Morning" <%= 'checked' if @item.times.include?("Morning")%>> Morning</label><br>
+      <label><input type="checkbox" name="times[]" value="Afternoon" <%= 'checked' if @item.times.include?("Afternoon")%>> Afternoon</label><br>
+      <label><input type="checkbox" name="times[]" value="Night" <%= 'checked' if @item.times.include?('Night')%>> Night</label><br>
+      
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

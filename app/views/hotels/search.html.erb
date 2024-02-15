@@ -1,0 +1,32 @@
+<%= form_tag search_path , method: :get do%>
+<div>
+    Select days:<br>
+        <label><input type="checkbox" name="days[]" value="Monday"> Monday</label><br>
+        <label><input type="checkbox" name="days[]" value="Tuesday"> Tuesday</label><br>
+        <label><input type="checkbox" name="days[]" value="Wednesday"> Wednesday</label><br>
+        <label><input type="checkbox" name="days[]" value="Thursday"> Thursday</label><br>
+        <label><input type="checkbox" name="days[]" value="Friday"> Friday</label><br>
+        <label><input type="checkbox" name="days[]" value="Saturday"> Saturday</label><br>
+        <label><input type="checkbox" name="days[]" value="Sunday"> Sunday</label><br>
+  </div>
+        
+  <div>
+    <br>Select times:<br>
+    <label><input type="checkbox" name="times[]" value="Morning"> Morning</label><br>
+        <label><input type="checkbox" name="times[]" value="Afternoon"> Afternoon</label><br>
+        <label><input type="checkbox" name="times[]" value="Night"> Night</label><br>
+    
+  </div>
+  <%= submit_tag "Submit"%>
+  <%end%>
+
+
+
+<% @items.each do |item|%>
+<%= link_to item.name , hotel_item_path(item.hotel , item)%>
+  <p>
+    <strong>Hotel:</strong>
+    <%=  item.hotel.name %>
+  </p>
+
+<%end%>

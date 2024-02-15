@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hotel: one
+  item: one
+  value: 1
+  user: one
+
+two:
+  hotel: two
+  item: two
+  value: 1
+  user: two
